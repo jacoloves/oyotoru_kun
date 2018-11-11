@@ -15,6 +15,11 @@ class CreateStudyTable extends Migration
     {
         Schema::create('study', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->date('date');
+            $table->integer('hour');
+            $table->integer('minute');
+            $table->string('comment');
             $table->timestamps();
         });
     }
