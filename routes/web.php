@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('study', 'StudyController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
