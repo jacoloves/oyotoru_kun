@@ -12,6 +12,8 @@
 */
 
 Route::get('study', 'StudyController@index');
+Route::get('study/add', 'StudyController@add');
+Route::post('study/add', 'StudyController@create');
 
 Route::get('/', function () {
     return view('welcome');
