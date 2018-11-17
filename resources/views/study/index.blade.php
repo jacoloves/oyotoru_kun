@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="./study/add">勉強時間追加</a>
@@ -31,8 +31,8 @@
                           <a class="nav-link disabled" href="#">勉強時間消したい</a>
                         </li>
                      </ul>
-                     <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                     <form class="form-inline my-2 my-lg-0" action="/study" method="post">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="name">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
                      </form>
                 </div>
@@ -40,7 +40,7 @@
                   
             <div class="container">
                 <h1>勉強時間測定</h1>
-                <h2>下の表に勉強時間が出力されるよ。</h2>        <!-- Content here -->
+                <h2>下の表に勉強時間が出力されるよ。</h2>  
             </div>
         </header>
         <div class="container">
@@ -62,6 +62,9 @@
                         <td>{{$item->date}}</td>
                         <td>{{$item->hour}}:{{$item->minute}}</td>
                         <td>{{$item->comment}}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"><a href="./study/update?{{$item->id}}">修正</a></button>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

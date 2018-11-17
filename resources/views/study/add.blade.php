@@ -21,17 +21,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">勉強時間追加</a>
+                          <a class="nav-link" href="./study/add">勉強時間追加</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">勉強時間消したい</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0" action="/study" method="post">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="name">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
                     </form>
                 </div>
@@ -45,15 +45,15 @@
                 {{ csrf_field() }}
                 <ul class="list-group">
                         <li class="list-group-item">
-                            勉強した科目　<input type="text">
+                            勉強した科目　<input type="text" name="name">
                         </li>
                         <li class="list-group-item">
-                            学習日　<input type="date">
+                            学習日　<input type="date" name="date">
                         </li>
                         <li class="list-group-item">
                             学習時間 
                             <select name="hour">
-                                <option value="zero_h">0</option>
+                                <option value="0" class="zero_h">0</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -80,7 +80,7 @@
                             </select> 
                             時 
                             <select name="minute">
-                                <option value="zero_m">0</option>
+                                <option value="00" class="zero_m">0</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -146,11 +146,15 @@
                         <li class="list-group-item">
                             感想やコメントなど
                             <br>
-                            <textarea class="comment_area" cols="30" rows="2"></textarea>
+                            <textarea class="comment_area" cols="30" rows="2" name="comment"></textarea>
                         </li>
-                    </ul>
-                    <br>
-                    <button type="button" class="btn btn-primary"><input type="submit"></button>
+                </ul>
+                <br>
+                
+                <button type="submit" class="btn btn-primary">送信</button>
+                <!--
+                <input type="submit">
+                -->
             </form>
         </div>          
     </div>
