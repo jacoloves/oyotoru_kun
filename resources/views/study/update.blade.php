@@ -16,14 +16,15 @@
                 <input type="hidden" name="id" value="{{$form->id}}">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        勉強した科目　<input type="text" name="name" value="{{$sel_item->name}}">
+                        勉強した科目　<input type="text" name="name" value="{{$form->name}}">
                     </li>
                     <li class="list-group-item">
-                        学習日　<input type="date" name="date" value="{{$sel_item->date}}">
+                        学習日　<input type="date" name="date" value="{{$form->date}}">
                     </li>
                     <li class="list-group-item">
                     学習時間 
-                    <select name="hour" value="{{$sel_item->hour}}">
+                    <select name="hour">
+                        <option >{{$form->hour}}</option>
                         <option class="zero_h">0</option>
                         <option>1</option>
                         <option>2</option>
@@ -50,7 +51,8 @@
                         <option>23</option>
                     </select>         
                     時 
-                    <select name="minute" value="{{$sel_item->minute}}">
+                    <select name="minute">
+                        <option>{{$form->minute}}</option>
                         <option class="zero_m">0</option>
                         <option>1</option>
                         <option>2</option>
@@ -117,11 +119,11 @@
                 <li class="list-group-item">
                     <p>感想やコメントなど</p> 
                     <br>
-                    <textarea class="comment_area" cols="30" rows="2" name="comment" value="{{$sel_item->commentf}}"></textarea>
+                    <textarea class="comment_area" cols="30" rows="2" name="comment">{{$form->comment}}</textarea>
                 </li>
             </ul>
             <br>
-            <button type="submit" class="btn btn-primary">送信</button>    
+            <button type="submit" class="btn btn-primary">更新</button>    
         </form>
     </div>
 @endsection

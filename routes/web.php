@@ -16,6 +16,9 @@ Route::post('study', 'StudyController@post');
 Route::get('study/add', 'StudyController@add');
 Route::post('study/add', 'StudyController@create');
 Route::get('study/update', 'StudyController@update');
+Route::post('study/update', 'StudyController@edit');
+Route::get('study/del', 'StudyController@delete');
+Route::post('study/del', 'StudyController@remove');
 
 Route::get('/', function () {
     return view('welcome');

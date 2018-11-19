@@ -49,13 +49,42 @@ class StudyController extends Controller
             'comment' => $request->comment,
         ];
         DB::insert('insert into studies (name, date, hour, minute, comment) values (:name, :date, :hour, :minute, :comment)', $param);
-        return redirect('./study');
+        return redirect('/study');
     }
 
     public function update(Request $request)
     {
-        $sel_id = $request->id;
-        $sel_item = DB::select('select * from studies where id = :id', $sel_id);
-        return view('study.update', ['$sel_id' => $item[0]]);
+        $sel_id = ['id' => $request->id];
+        $item = DB::select('select * from studies where id = :id', $sel_id);
+        return view('study.update', ['form' => $item[0]]);
+    }
+
+    public function edit(Request $request)
+    {
+        $param = [
+            'id' => $request->id,
+            'name' => $request->name,
+            'date' => $request->date,
+            'hour' => $request->hour,
+            'minute' => $request->minute,
+            'comment' => $request->comment,
+        ];
+
+        DB::update('update studies set name = :name, date = :date, hour = :hour, minute = :minute, comment = :comment where id = :id', $param);
+        return redirect('/study');
+    }
+
+    public function delete(Request $request)
+    {
+        $sel_id = ['id' => $request->id];
+        $item = DB::select('select * from studies where id = :id', $sel_id);
+        return view('study.del', ['sel_row' => $item[0]]);
+    }
+
+    public function remove(Request $request)
+    {
+        $sel_id = ['id' => $request->id];
+        DB::delete('delete from studies where id = :id', $sel_id);
+        return redirect('/study');
     }
 }

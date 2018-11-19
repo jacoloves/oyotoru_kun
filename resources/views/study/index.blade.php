@@ -22,13 +22,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/study">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="./study/add">勉強時間追加</a>
+                            <a class="nav-link" href="/study/add">勉強時間追加</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link disabled" href="#">勉強時間消したい</a>
+                            <a class="nav-link disabled" href="/study/del">勉強時間消したい</a>
                         </li>
                      </ul>
                      <form class="form-inline my-2 my-lg-0" action="/study" method="post">
@@ -63,7 +63,8 @@
                         <td>{{$item->hour}}:{{$item->minute}}</td>
                         <td>{{$item->comment}}</td>
                         <td>
-                            <button type="button" class="btn btn-success"><a href="./study/update?{{$item->id}}">修正</a></button>
+                            <button type="button" class="btn btn-success"><a href="/study/update?id={{$item->id}}">修正</a></button>
+                            <button type="button" class="btn btn-danger"><a href="/study/del?id={{$item->id}}">削除</a></button>
                         </td>
                     </tr>
                 @endforeach

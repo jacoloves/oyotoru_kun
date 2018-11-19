@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/study">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="./study/add">勉強時間追加</a>
+                      <a class="nav-link" href="/study/add">勉強時間追加</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="#">勉強時間消したい</a>
+                      <a class="nav-link disabled" href="/study/del">勉強時間消したい</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/study" method="post">
@@ -40,7 +40,7 @@
     </header>
     <div class="main">
         @yield('contents')
-        
+
     </div>
     <footer>
         @yield('footer')
