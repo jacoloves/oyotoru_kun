@@ -20,6 +20,7 @@ Route::post('study/update', 'StudyController@edit');
 Route::get('study/del', 'StudyController@delete');
 Route::post('study/del', 'StudyController@remove');
 Route::get('study/auth', 'StudyController@getAuth');
+//Route::post('/logout', 'StudyController@index');
 
 /*
 Route::get('/', function () {
