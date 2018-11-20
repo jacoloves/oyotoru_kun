@@ -19,7 +19,14 @@ Route::get('study/update', 'StudyController@update');
 Route::post('study/update', 'StudyController@edit');
 Route::get('study/del', 'StudyController@delete');
 Route::post('study/del', 'StudyController@remove');
+Route::get('study/auth', 'StudyController@getAuth');
 
+/*
 Route::get('/', function () {
-    return view('welcome');
+    return view('study.index');
 });
+*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

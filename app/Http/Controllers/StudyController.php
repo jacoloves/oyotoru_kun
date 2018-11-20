@@ -5,11 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Study;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class StudyController extends Controller
 {
+    //auth
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
+        /*
+        if (Auth::check()){
+
+        }
+        */
+
         $items = DB::select('select * from studies order by date desc');
         return view('study.index', ['items' => $items]);
     }
@@ -87,4 +100,12 @@ class StudyController extends Controller
         DB::delete('delete from studies where id = :id', $sel_id);
         return redirect('/study');
     }
+
+    public function getAuth(Request $request)
+    {
+        $param = ['message' => 'ログインしてください'];
+        return view('study.auth', $param);
+    }
+
+    
 }

@@ -26,11 +26,22 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/study/add">勉強時間追加</a>
-                        </li>
+                        </li>                    
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="/study/del">勉強時間消したい</a>
+                            <a class="nav-link">{{Auth::user()->name}} でログインしています。</a>                            
                         </li>
-                     </ul>
+                        <button type="button" class="btn btn-warning">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </button>
+                     </ul>                     
                      <form class="form-inline my-2 my-lg-0" action="/study" method="post">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="name">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
