@@ -23,7 +23,7 @@ class StudyController extends Controller
         }
         */
 
-        $items = DB::select('select * from studies order by date desc');
+        $items = DB::table('studies')->orderBy('data', 'desc')->paginate(5);
         return view('study.index', ['items' => $items]);
     }
 
@@ -33,9 +33,9 @@ class StudyController extends Controller
         {
             $param = $request->name;
             //$items = DB::select('select * from studies where name = :name order by date desc', $param);
-            $items = DB::table('studies')->where('name', 'like', '%' . $param . '%')->get();
+            $items = DB::table('studies')->where('name', 'like', '%' . $param . '%')->paginate(5);
         } else {
-            $items = DB::select('select * from studies order by date desc');
+            $items = DB::table('studies')->orderBy('data', 'desc')->paginate(5);
         }
         return view('study.index', ['items' => $items]);
     }
