@@ -24,7 +24,8 @@ class StudyController extends Controller
         */
 
         $items = DB::table('studies')->orderBy('data', 'desc')->paginate(5);
-        return view('study.index', ['items' => $items]);
+        $flg = ['flg' => 0];
+        return view('study.index', ['items' => $items], $flg);
     }
 
     public function post(Request $request)

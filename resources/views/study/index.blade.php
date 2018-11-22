@@ -80,7 +80,8 @@
                     </tr>
                 @endforeach
                 </tbody>
-            </table> 
+            </table>
+            <p>{{$flg}}</p>
             {{ $items->links() }} 
         </div>
         <footer>
