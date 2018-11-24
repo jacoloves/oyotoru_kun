@@ -37,13 +37,13 @@ class StudyController extends Controller
             //$items = DB::select('select * from studies where name = :name order by date desc', $param);
             //ペジネーションをしないフラグ
             $flg = ['flg' => 1];
-            $items = DB::table('studies')->where('name', 'like', '%' . $param . '%')->paginate(5);
+            $items = DB::table('studies')->where('name', 'like', '%' . $param . '%')->get();
         } else {
             //ペジネーションをするフラグ
             $flg = ['flg' => 0];
             $items = DB::table('studies')->orderBy('data', 'desc')->paginate(5);
         }
-        return view('study.index', ['items' => $items]);
+        return view('study.index', ['items' => $items], $flg);
     }
 
     public function add(Request $request)

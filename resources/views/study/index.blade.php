@@ -81,8 +81,9 @@
                 @endforeach
                 </tbody>
             </table>
-            <p>{{$flg}}</p>
-            {{ $items->links() }} 
+            @if ($flg === 0)
+                {{ $items->links() }} 
+            @endif
         </div>
         <footer>
             <div class="container">
