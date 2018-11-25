@@ -24,7 +24,7 @@ class StudyController extends Controller
         */
 
         $items = DB::table('studies')->orderBy('data', 'desc')->paginate(5);
-        //ペジネーションをするフラグ
+        //ペジネーションをするフラグ4
         $flg = ['flg' => 0];
         return view('study.index', ['items' => $items], $flg);
     }

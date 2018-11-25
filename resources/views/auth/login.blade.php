@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="head_area">
+                <h2>勉強の時間を記録する</h2>
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
